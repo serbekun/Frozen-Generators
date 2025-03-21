@@ -1,4 +1,5 @@
 import random
+import time
 from colorama import init, Fore, Style
 
 # Константы
@@ -203,6 +204,7 @@ def player_change_hp(player_position, temperature, player_hp, monster_position, 
 
     if player_hp <= DEAD_HP:
         print(Fore.RED + "you died" + Style.RESET_ALL)
+        time.sleep(5)
         exit()
 
     return player_hp
@@ -254,4 +256,5 @@ def reset_monster_position(monster_position):
 def chek_turn(turn_count):
     if turn_count > LAST_TURN:
         print(Fore.GREEN + "you win you survive." + Style.RESET_ALL)
+        time.sleep(5)
         exit()
