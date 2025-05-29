@@ -2,7 +2,7 @@ import random
 import time
 from colorama import init, Fore, Style
 
-# Константы
+# consts
 MAX_ENERGY = 100
 MIN_ENERGY = 0
 MAX_HP = 100
