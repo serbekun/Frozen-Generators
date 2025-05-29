@@ -122,13 +122,13 @@ def move_player(player_position):
     except ValueError:
         print("Invalid input. Enter a number.")
     
-def incatvie_transformer(transformer_status, transformer_break_chance):
+def inactive_transformer(transformer_status, transformer_break_chance):
     if random.random() < transformer_break_chance:
         print("The transformer is broken!")
         transformer_status = False
     return transformer_status
 
-def up_incatvie_transformer(transformer_break_chance, turn_count):
+def up_inactive_transformer(transformer_break_chance, turn_count):
     if turn_count % 15 == 0:
         transformer_break_chance += TRANSFORMAR_BREAKE_CHANSE_UP
     return transformer_break_chance
@@ -209,7 +209,7 @@ def player_change_hp(player_position, temperature, player_hp, monster_position, 
 
     return player_hp
 
-def show_scan_diplay(monster_action_ra, tablet_energy):
+def show_scan_display(monster_action_ra, tablet_energy):
     tablet_energy -= 50
     if tablet_energy <= 0:
         tablet_energy = 0
@@ -243,7 +243,7 @@ def do_monster_action(monster_position, monster_action_ra):
         monster_position = monster_action_ra
         return monster_position
     
-def chek_monster_position(monster_position, engine_work, doors):
+def check_monster_position(monster_position, engine_work, doors):
     if monster_position in [0, 1, 2]:
         if doors[monster_position] == False:
             engine_work[monster_position] = False
@@ -253,7 +253,7 @@ def reset_monster_position(monster_position):
         monster_position = 4
     return monster_position
 
-def chek_turn(turn_count):
+def check_turn(turn_count):
     if turn_count > LAST_TURN:
         print(Fore.GREEN + "you win you survive." + Style.RESET_ALL)
         time.sleep(5)
