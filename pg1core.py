@@ -209,8 +209,8 @@ def player_change_hp(player_position, temperature, player_hp, monster_position, 
 
     return player_hp
 
-def show_scan_display(monster_action_ra, tablet_energy):
-    tablet_energy -= 50
+def show_scan_display(monster_action_ra, tablet_energy, monster_do_action_count, round_count):
+    monster_come_turn = moster_do_action_count + round_count
     if tablet_energy <= 0:
         tablet_energy = 0
         return tablet_energy
@@ -219,7 +219,8 @@ def show_scan_display(monster_action_ra, tablet_energy):
     elif monster_action_ra == 4:
         print("stay in his home")
     else:
-        print("next monster go energy block -", monster_action_ra)
+        print(f"next monster go energy block - { monster_action_ra}, in turn '{monster_come_turn}')
+    tablet_energy -= 50
     return tablet_energy
 
 def charge_tablet(player_position, tablet_energy, energy):
