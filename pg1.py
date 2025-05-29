@@ -42,7 +42,7 @@ while True:
     elif action == "4":
         transformer_status = pg1core.restart_transformer(player_position, transformer_status)
     elif action == "5":
-        tablet_energy = pg1core.show_scan_display(monster_action_ra, tablet_energy)
+        tablet_energy = pg1core.show_scan_display(monster_action_ra, tablet_energy, monster_do_action_count)
     elif action == "6":
         tablet_energy = pg1core.charge_tablet(player_position, tablet_energy, energy)
     elif action == "7":
