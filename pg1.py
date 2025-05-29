@@ -14,13 +14,16 @@ transformer_status = True
 monster_position = 4
 transformer_break_chance = 0.05
 do_new_action = True
+monster_do_action_count = 0
 
 # Main game loop
 while True:
     turn_count += 1
     pg1core.display_status(player_hp, turn_count, energy, temperature, engine, player_position, transformer_status, tablet_energy, doors, engine_work)
+    monster_do_action_count -= 1
     
     if do_new_action:
+        monster_do_action_count = random.randint(5, 7)
         monster_action_ra = pg1core.set_monster_action()
         do_new_action = False
 
@@ -48,7 +51,7 @@ while True:
         print("Turn skipped")
 
     monster_position = pg1core.reset_monster_position(monster_position)
-    if turn_count % 5 == 0:
+    if monster_do_action_count <= 0:
         monster_position = pg1core.do_monster_action(monster_position, monster_action_ra)
         do_new_action = True
     pg1core.check_monster_position(monster_position, engine_work, doors)
